@@ -56,7 +56,8 @@ type IconName = 'none'
 type Size = 'large'
 	| 'big'
 	| 'medium'
-	| 'small';
+	| 'small'
+	| 'mini';
 
 interface Props {
 	name: IconName,
