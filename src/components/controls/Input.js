@@ -56,9 +56,10 @@ const styles = StyleSheet.create({
 	iconContainer: {
 		position: 'absolute',
         height: 45,
+		width: 50,
         justifyContent: 'center',
 		alignItems: 'center',
-		right: 15
+		right: 0
 	},
 	messageContainer: {
 		minHeight: 22,

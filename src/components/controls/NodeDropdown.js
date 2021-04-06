@@ -92,8 +92,8 @@ export default class MosaicDropdown extends Component<Props, State> {
 
     onSubmit = () => {
         if (!this.state.isInvalidUrl && this.state.customNodeUrlInput.length) {
-            this.dropdown.current.closeSelector();
             this.props.onChange(this.state.customNodeUrlInput);
+            this.dropdown.current.closeSelector();
         }
     };
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Modal, FlatList, ActivityIndicator } from 'react-native';
 import GlobalStyles from '@src/styles/GlobalStyles';
-import { Icon, Row, Text as AdvancedText } from '@src/components';
+import { Icon, Row, Text as AdvancedText, Trunc } from '@src/components';
 import TitleBar from '@src/components/atoms/TitleBar';
 
 const styles = StyleSheet.create({
@@ -147,7 +147,7 @@ export default class Dropdown extends Component<Props, State> {
 
     getselectedOption = (value, list) => {
         const selectedOption = list.find(el => el.value === value);
-        return selectedOption;
+        return !!selectedOption ? selectedOption : (value ? { label: value, value } : null);
     };
 
     getIconPosition = (k, offset) => {
@@ -239,7 +239,13 @@ export default class Dropdown extends Component<Props, State> {
                 {!children && (
                     <TouchableOpacity style={inputStyles} onPress={() => !isLoading && this.openSelector()}>
                         {selectedOption &&
-                            (!customInputReneder ? <Text style={styles.inputText}>{selectedOption.label}</Text> : customInputReneder(selectedOption))}
+                            (!customInputReneder 
+                                ? <Text style={styles.inputText}>
+                                    <Trunc length={36}>{selectedOption.label}</Trunc>
+                                </Text> 
+                                : customInputReneder(selectedOption)
+                            )
+                        }
                         {!selectedOption && <Text style={styles.placeholder}>{placeholder}</Text>}
                         <View style={[styles.icon, this.getIconPosition(iconWrapperWidth, iconOffset)]}>
                             <Icon name="expand" size={iconSize} />

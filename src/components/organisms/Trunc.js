@@ -28,7 +28,7 @@ class Transaction extends Component<Props> {
     };
 
     render = () => {
-        const { type, children } = this.props;
+        const { type, length = 5, children } = this.props;
         if (typeof children !== 'string') {
             console.error(`Failed to trunc text. ${typeof children} is not a "string"`);
             return '';
@@ -41,7 +41,7 @@ class Transaction extends Component<Props> {
             case 'namespaceName':
                 return this.trunc(children, 'middle', 6, 6);
             default:
-                return this.trunc(children, 'end', 5);
+                return this.trunc(children, 'end', length);
         }
     };
 }
