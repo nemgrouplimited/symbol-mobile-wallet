@@ -48,13 +48,19 @@ const requestWritePermission = async (): Promise<boolean> => {
     }
 };
 
-const saveFile = (data, filename, platform, encoding) => {
+const saveFile = async (data, filename, platform, encoding) => {
     const { dirs } = RNFetchBlob.fs;
+    if (platform === 'android') {
+        const exists = await RNFetchBlob.fs.exists(dirs.DownloadDir);
+        if (!exists) await RNFetchBlob.fs.mkdir(dirs.DownloadDir);
+    }
     return RNFetchBlob.fs
         .writeFile(`${platform === 'ios' ? dirs.DocumentDir : dirs.DownloadDir}/${filename}`, data, encoding)
         .then(() => {
             if (platform === 'ios') {
                 RNFetchBlob.ios.previewDocument(`${dirs.DocumentDir}/${filename}`);
+            } else {
+                RNFetchBlob.android.actionViewIntent(`${platform === 'ios' ? dirs.DocumentDir : dirs.DownloadDir}/${filename}`, "application/pdf")
             }
             Router.showMessage({
                 message: translate(
