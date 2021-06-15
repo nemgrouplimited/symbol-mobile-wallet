@@ -66,9 +66,9 @@ const saveFile = (data, filename, platform, encoding) => {
                 type: 'success'
             });
         })
-        .catch(() => {
+        .catch((e) => {
             Router.showMessage({
-                message: translate('unsortedKeys.errorSavingFile'),
+                message: translate('unsortedKeys.errorSavingFile') + '. ' + e.message,
                 type: 'danger',
             });
         });
