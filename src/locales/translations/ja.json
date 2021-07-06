@@ -471,7 +471,7 @@
 	},
 	"home": {
 		"optInTitle": "オプトイン",
-		"optInDescription": "ローンチ後のオプトインは、間もなく開始されます。Symbolローンチ後、新しいバージョンを確認してください。",
+		"optInDescription": "Symbolローンチ後のオプトインはこちらから",
 		"pendingSignatureTitle": "ペンディング署名",
 		"pendingSignatureDescription": "署名待ちのペンディングトランザクションがあります"
 	},
