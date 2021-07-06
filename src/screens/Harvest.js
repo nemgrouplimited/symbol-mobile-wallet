@@ -87,10 +87,8 @@ class Harvest extends Component<Props, State> {
     }
 
     getSelectedUrl = () => {
-        const { nodes } = this.props;
         const { selectedNodeUrl } = this.state;
-        const nodeObj = nodes.find(node => node.url === selectedNodeUrl);
-        return nodeObj ? nodeObj.url : null;
+        return selectedNodeUrl;
     };
 
     getHarvestingNodesDropDown = () => {
