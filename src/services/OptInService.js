@@ -164,7 +164,7 @@ export default class OptInService {
                             port: 7890,
                         },
                         network: nem.model.network.data.mainnet.id,
-                        configAddress: 'NAWIP6WBLEAHUHWJ757Q2UXTVE3DYVDNNDAVWLUZ',
+                        configAddress: 'NAQ7RCYM4PRUAKA7AMBLN4NPBJEJMRCHHJYAVA72',
                         errorAccountPublicKey: 'dd215238aab71f375fc79455e2fe0e3c4f96ba7dadd5f3c102979c6958b9c337',
                     },
                     SYM: {
